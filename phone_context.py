@@ -12,7 +12,7 @@ def context(token):
 	words = open('./cmudict-0.7b', 'r')
 
 	# Generate output file
-	file_name = "./output_" + token + ".txt"
+	file_name = "./output/output_" + token + ".csv"
 	output = open(file_name, 'w')
 
 	# Initialize token instance counter
@@ -37,11 +37,11 @@ def context(token):
 			if ndx==1:
 				# If token is only phone
 				if len(s) == 2: 
-					trunc = s[0] + ', ' + s[ndx] + '\n'
+					trunc = s[0] + ',  ,' + s[ndx] + '\n'
 
 				# Else, take token and following phone
 				else: 
-					trunc = s[0] + ', ' + s[ndx] + ', ' + s[ndx+1] + '\n'
+					trunc = s[0] + ',  ,' + s[ndx] + ', ' + s[ndx+1] + '\n'
 			
 			# If token is last phone
 			elif ndx==(len(s)-1):
@@ -72,6 +72,7 @@ def main():
 	while (stop == False):
 		# Get input token from user
 		token = raw_input("Enter phone to find (ex. AA1, AE2): ");
+		# TODO: Check that phone is w/i list
 		context(token)
 
 		# Continue or break out of loop
