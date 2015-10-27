@@ -11,6 +11,9 @@ def context(token):
 	# Open file to read
 	words = open('./cmudict-0.7b', 'r')
 
+	# Allowed phones in output
+	filter_pre = ['T', 'K', 'B', 'S', 'P', 'D', 'F', 'CH', 'G'];
+	filter_post = ['T', 'K', 'B', 'S', 'P', 'D', 'F', 'CH', 'G', 'M', 'N'];
 	# Generate output file
 	file_name = "./output/output_" + token + ".csv"
 	output = open(file_name, 'w')
@@ -41,14 +44,20 @@ def context(token):
 
 				# Else, take token and following phone
 				else: 
+					# Do not output if following phone is not in list
+					if (s[ndx+1] not in filter_post): continue
 					trunc = s[0] + ',  ,' + s[ndx] + ', ' + s[ndx+1] + '\n'
 			
 			# If token is last phone
 			elif ndx==(len(s)-1):
+				# Do not output if preceding phone is not in list
+				if (s[ndx-1] not in filter_pre): continue
 				trunc = s[0] + ', ' + s[ndx-1] + ', ' + s[ndx] + '\n'
 
 			# Somewhere in the middle but way more fresher
 			else :
+				# Make sure surrounding phones are in list
+				if (s[ndx-1] not in filter_pre or s[ndx+1] not in filter_post): continue
 				trunc = s[0] + ', ' + s[ndx-1] + ', ' + s[ndx] + ', ' + s[ndx+1] + '\n'
 
 			print_phone = ''.join(trunc)
