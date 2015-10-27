@@ -32,7 +32,6 @@ def context(token):
 
 			else:
 				ndx = s.index(token)
-				count += 1
 
 			# Format output to contain only surrounding phones
 
@@ -60,6 +59,7 @@ def context(token):
 				if (s[ndx-1] not in filter_pre or s[ndx+1] not in filter_post): continue
 				trunc = s[0] + ', ' + s[ndx-1] + ', ' + s[ndx] + ', ' + s[ndx+1] + '\n'
 
+			count += 1
 			print_phone = ''.join(trunc)
 			output.write(print_phone)
 
