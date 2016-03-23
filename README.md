@@ -1,4 +1,12 @@
 # senior-thesis
-Python analysis extracting phoneme-grapheme stats from CMU phonetic dictionary
+Statistical predictions for English pronunciation
 
-Repo contains cmu dictionary, and a smaller test corpus (test.txt)
+Python script extracting phoneme-grapheme stats from CMU phonetic dictionary
+
+Repo contains 
+* phone_context which extracts all tokens containing a phone within the phonetic dictionary
+* test.txt, a cleaned up version of cmudict
+* randomize_stimuli which generated the stimulus lists used in lab tests
+* fixit to format data
+
+Statistical analysis of data contained in data_analysis.R

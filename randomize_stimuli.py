@@ -1,17 +1,17 @@
 import random
 
-stimuli = [
-'Kano', 'Kami', 'Dano', 'Sanu',
-'Pani', 'Tanu', 'Kapi', 'Katu',
-'Taku', 'Bani', 'Astu', 'Kaso',
-'Apet', 'Aktu', 'Anto', 'Dami',
-'Bato', 'Pati', 'Baku', 'Admi']
+stimuli = ['Cano','Pani','Tacu','Aplo','Bato','Canu','Pano',
+'Tacto','Apso','Bati','Cami','Tana','Bani','Actu','Pati',
+'Cama','Tano','Bana','Acta','Pata','Dano','Capi','Astu',
+'Anto','Baco','Dani','Capu','Asca','Anco','Baca','Sanu',
+'Catu','Casu','Damo','Admi','Sana','Cata','Caso','Dami',
+'Admo','Tamo','Tama','Samo','Sama' ]
 
-filler = [
-'Toka', 'Doba', 'Poti', 'Bobi', 'Kota', 
-'Puto', 'Duka', 'Ubit', 'Buto', 'Puda',
-'Peka','Deno','Chebo','Kepa', 'Bebu', 
-'Onat', 'Epak', 'Odab','Upat','Inap']
+filler = [ 'Choca', 'Doba', 'Poti', 'Boto', 'Cota', 'Chato', 
+'Pota', 'Duca', 'Chupo', 'Buto', 'Puda', 'Pidi', 'Teca', 
+'Deno', 'Chebo', 'Coba', 'Bebu', 'Chipa', 'Ondo', 'Edri',
+ 'Ocru', 'Piga', 'Bipo', 'Tona', 'Beni', 'Inti', 'Bica', 
+ 'Doma', 'Onti', 'Cumo', 'Tosa', 'Coso', 'Dega', 'Godi', 'Gumo']
 
 spanish = []
 english = []
@@ -39,16 +39,21 @@ random.shuffle(english)
 print "Random Spanish:", spanish
 print "Random English:", english
 
+filename = raw_input('File name should be:');
+spanishname = './spanish' + filename + '_tokens.txt'
+englishname = './english' + filename + '_tokens.txt'
 # Write to output files
-spanish_tokens = open('./output/spanish_tokens.txt', 'wb')
-english_tokens = open('./output/english_tokens.txt', 'wb')
+spanish_tokens = open(spanishname, 'wb')
+english_tokens = open(englishname, 'wb')
 
 for i in range(0, len(spanish)):
-	writing = spanish[i] + '\n'
+	writing = spanish[i] + '\r\n'
 	spanish_tokens.write(writing)
+	rating = "Rating? \t 1   .   .   .   5\r\n"
+	spanish_tokens.write(rating)
 
 for i in range(0, len(english)):
-	writing = english[i] + '\n'
+	writing = english[i] + '\r\n'
 	english_tokens.write(writing)
 
 spanish_tokens.close()
