@@ -10,3 +10,6 @@ Repo contains
 * fixit to format data
 
 Statistical analysis of data contained in data_analysis.R
+
+TODO:
+* Customize context input of phone_context (not hardcoded)
