@@ -20,14 +20,14 @@ def context(token):
 
 	# Initialize token instance counter
 	count = 0
-
+	count2 = 0
 	for line in words:
 		if token in line: 
 			# Split items into list items
 			s = line.split()
 
 			# See if "AA" is within word
-			if (s.count(token) == 0) :
+			if (s.count(token) == 0 ) :
 				continue	
 
 			else:
@@ -35,36 +35,40 @@ def context(token):
 
 			# Format output to contain only surrounding phones
 
-			# If token is first phone
-			if ndx==1:
-				# If token is only phone
-				if len(s) == 2: 
-					trunc = s[0] + ',  ,' + s[ndx] + '\n'
-
-				# Else, take token and following phone
-				else: 
-					# Do not output if following phone is not in list
-					if (s[ndx+1] not in filter_post): continue
-					trunc = s[0] + ',  ,' + s[ndx] + ', ' + s[ndx+1] + '\n'
 			
-			# If token is last phone
-			elif ndx==(len(s)-1):
-				# Do not output if preceding phone is not in list
-				if (s[ndx-1] not in filter_pre): continue
-				trunc = s[0] + ', ' + s[ndx-1] + ', ' + s[ndx] + '\n'
+			if 'A' in s[0]:
+				# If token is first phone
+				if ndx==1:
+					# If token is only phone
+					if len(s) == 2: 
+						trunc = s[0] + ',  ,' + s[ndx] + '\n'
 
-			# Somewhere in the middle but way more fresher
-			else :
-				# Make sure surrounding phones are in list
-				if (s[ndx-1] not in filter_pre or s[ndx+1] not in filter_post): continue
-				trunc = s[0] + ', ' + s[ndx-1] + ', ' + s[ndx] + ', ' + s[ndx+1] + '\n'
+					# Else, take token and following phone
+					else: 
+						# Do not output if following phone is not in list
+						if (s[ndx+1] not in filter_post): continue
+						trunc = s[0] + ',  ,' + s[ndx] + ', ' + s[ndx+1] + '\n'
+				
+				# If token is last phone
+				elif ndx==(len(s)-1):
+					# Do not output if preceding phone is not in list
+					if (s[ndx-1] not in filter_pre): continue
+					trunc = s[0] + ', ' + s[ndx-1] + ', ' + s[ndx] + '\n'
 
-			count += 1
-			print_phone = ''.join(trunc)
-			output.write(print_phone)
+				# Somewhere in the middle but way more fresher
+				else :
+					# Make sure surrounding phones are in list
+					if (s[ndx-1] not in filter_pre or s[ndx+1] not in filter_post): continue
+					trunc = s[0] + ', ' + s[ndx-1] + ', ' + s[ndx] + ', ' + s[ndx+1] + '\n'
+
+				count += 1
+				print_phone = ''.join(trunc)
+				output.write(print_phone)
 
 	print("\nwords with " + token + ":")
 	print(count) 
+	print("\n words with " + token + " and 'a':")
+	print (count2)
 
 	output.close()
 	words.close()

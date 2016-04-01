@@ -25,23 +25,40 @@ def fixIt2(filename, ct):
 	newFileName = './spanish_v' + str(ct) + '.txt'
 	print newFileName
 
-	newFile = open(newFileName, 'wb');
+	newFile = open(newFileName, 'wb')
 
 	for line in getFrom:
 		if any(char.isdigit() for char in line):
 			continue
 		else:
+
 			line.strip()
 			print line
 			writeTo = line + '\n'
 			newFile.write(line)
 
+def tablurize(filename):
+	getFrom = open(filename, 'r')
+	newFileName = 'tableform.txt'
+
+	newFile = open(newFileName, 'wb')
+
+	for line in getFrom: 
+		s = ''
+		for x in line.split(' '):
+			x.strip()
+			s = s + x + ' & '
+		s + '\\\n'
+
+		
+		print s
+		newFile.write(s)
 
 def main():
-	
-	fixIt2('./spanishNEW1_tokens.txt', 1)
-	fixIt2('./spanishNEW2_tokens.txt', 2)
-	fixIt2('./spanishNEW3_tokens.txt', 3)
+	tablurize('./fixme.txt')
+	#fixIt2('./spanishNEW1_tokens.txt', 1)
+	#fixIt2('./spanishNEW2_tokens.txt', 2)
+	#fixIt2('./spanishNEW3_tokens.txt', 3)
 
 
 main()

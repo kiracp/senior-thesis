@@ -8,8 +8,8 @@ Repo contains
 * test.txt, a cleaned up version of cmudict
 * randomize_stimuli which generated the stimulus lists used in lab tests
 * fixit to format data
+* data_analysis.R contains the statistical analyses applied to the data
 
-Statistical analysis of data contained in data_analysis.R
 
 TODO:
 * Customize context input of phone_context (not hardcoded)
