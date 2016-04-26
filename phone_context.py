@@ -11,12 +11,14 @@ def context(token):
 	# Open file to read
 	words = open('./cmudict-0.7b', 'r')
 
-	# Allowed phones in output
-	filter_pre = ['T', 'K', 'B', 'S', 'P', 'D', 'F', 'CH', 'G'];
-	filter_post = ['T', 'K', 'B', 'S', 'P', 'D', 'F', 'CH', 'G', 'M', 'N'];
 	# Generate output file
 	file_name = "./output/output_" + token + ".csv"
 	output = open(file_name, 'w')
+
+	# Allowed phones in output
+	filter_pre = ['T', 'K', 'B', 'S', 'P', 'D', 'F', 'CH', 'G'];
+	filter_post = ['T', 'K', 'B', 'S', 'P', 'D', 'F', 'CH', 'G', 'M', 'N'];
+	
 
 	# Initialize token instance counter
 	count = 0
@@ -36,7 +38,7 @@ def context(token):
 			# Format output to contain only surrounding phones
 
 			
-			if 'A' in s[0]:
+			if token in s[0]:
 				# If token is first phone
 				if ndx==1:
 					# If token is only phone
@@ -67,8 +69,6 @@ def context(token):
 
 	print("\nwords with " + token + ":")
 	print(count) 
-	print("\n words with " + token + " and 'a':")
-	print (count2)
 
 	output.close()
 	words.close()

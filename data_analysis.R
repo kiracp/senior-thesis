@@ -9,8 +9,37 @@ colnames(data)
 
 ### CREATE DATA FRAMES
 # Group + Phone
-data.xtabs = xtabs(~Group + Phone, data = data)
+data.xtabs = xtabs(~Phone + Group, data = data)
+
+data.xtabs2 = xtabs(~Phone + Experiment, data = data)
+data.xtabs2
+data.xtabs2/sum(data.xtabs2)
+
+colnames(data.xtabs)
 data.xtabs
+row.names(data.xtabs) <- c("/æ/", "/ɑ/")
+data.xtabs
+install.packages(data)
+library(data.table)
+(setattr(data.xtabs, "row.names", c("/æ/", "/ɑ/")))
+data.xtabs = data.xtabs/sum(data.xtabs) 
+install.packages(vcd)
+
+mosaicplot(data.xtabs, color=TRUE, main="Phone by Participant Language", ylab="Participant language", y.arg=c("Non-Spanish", "Spanish"))
+
+counts <- table(mtcars$vs, mtcars$gear)
+barplot(data.xtabs, main="Phone distribution by participant language",
+        xlab="Language group", names.arg=c("Non-Spanish","Spanish"), col=c("darkblue","red"),
+         beside=TRUE, xpd=T)
+legend("bottomright", legend = rownames(data.xtabs))
+
+legend(x = 0.25, y = 35, c("seed match", "background"), bty="n", lty=c(1,1), col=c("red","black"), cex=0.8, inset=0)
+legend(x = 0.25, y = 35, legend = rownames(data.xtabs), bty="n", lty=c(1,1), col=c("red","black"), cex=0.8, inset=0)
+
+install.packages("ggplot2")
+library("ggplot2")
+
+qplot(factor(cyl), data=data, geom="bar", fill=factor(cyl))
 
 useme = data.xtabs/sum(data.xtabs) 
 par(mfrow = c(1,2))
@@ -64,8 +93,9 @@ summary(resultsA)
 
 
 ## GLMER STUFF
-
-
+data <- read.csv("/Users/kiraprentice/Documents/College/Senior Honors Thesis/Data/exp.csv", header=TRUE, fill=TRUE, row.names=NULL)
+results <- glmer(Phone ~ Experiment +  (1|Participant) + (1|Token), family=binomial("logit"), data=data)
+summary(results)
 
 results <- glmer(Phone ~ TokenLanguage * Context +  (1|Participant) + (1|Token), family=binomial("logit"), data=data)
 summary(results)

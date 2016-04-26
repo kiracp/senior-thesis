@@ -9,7 +9,8 @@ Repo contains
 * randomize_stimuli which generated the stimulus lists used in lab tests
 * fixit to format data
 * data_analysis.R contains the statistical analyses applied to the data
-
+* slides 
+  * URC presentation using reveal.js
 
 TODO:
 * Customize context input of phone_context (not hardcoded)
