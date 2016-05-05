@@ -43,9 +43,10 @@
 				<section>
 					<h1>Anglicizing Spanish /a/</h1>
 					<h3>Implications of statistical distribution and <br>language experience on non-native pronunciation</h3>
-					<p><small>Senior Honors Thesis by Kira Prentice</small></p>
+					<p class="yellow"><small>Senior Honors Thesis by Kira Prentice</small></p>
 				</section>
 
+				<!--
 				<section>
 					<h1>BACKGROUND</h1>
 					<section>
@@ -60,22 +61,25 @@
 					<section>
 						<p>El Paso, alpaca and cilantro?</p>
 					</section>
-				</section>
+				</section> -->
 
-				<!-- UNCOMMENT FOR PDF
+				
 				<section>
 					<h1>BACKGROUND</h1>
 					<h2> I hear people say... </h2>
-					<ul>
-						<li><p>Taco, jalapeño and cilantro?</p></li></ul>
+						<p>Taco, jalapeño and cilantro?</p>
+				</section>
+				<section>
+					<h1>BACKGROUND</h1>
+					
 				
 						<h2> But we also say ... </h2>
 						
-					<ul><li>
+					
 						<p>El Paso, alpaca and cilantro?</p>
-					</li></ul>
+					
 				</section>
-				-->
+				
 
 				<section>
 					<h1>BACKGROUND</h1>
@@ -92,7 +96,7 @@
 					<h1>MAIN QUESTIONS</h1>
 					<ul>
 						<li>How do English speakers nativize the vowel <strong><span class="red">/a/</span></strong> in words that they perceive to be from Spanish?</li>
-						<li><strong><span class="yellow">HYPOTHESIS: </span></strong>Statistical calculations of /ɑ/ and /æ/ frequencies as a function of immediate consonantal context</li>
+						<li><strong><span class="yellow">HYPOTHESIS? </span></strong>Statistical calculations of /ɑ/ and /æ/ frequencies as a function of immediate consonantal context in English</li>
 						<li>Across factors: </li>
 						  <ul>
 						  	<li>With and without Spanish experience?</li>
@@ -112,7 +116,7 @@
 				</section>
 
 				<section>
-					<h1>GENERATING A HYPOTHESIS</h1>
+					<h1>GENERATING THE FREQUENCIES</h1>
 					<p> Using <a href="www.speech.cs.cmu.edu/cgi-bin/cmudict">CMUDict</a>, an online pronunciation dictionary
 					</p>
 					<pre><code class="hljs" data-trim contenteditable>
@@ -213,7 +217,7 @@ def context(token):
 					<ul>
 						<li>22 participants total:</li><ul>
 						 	<li><span class="red">10 with Spanish experience</span></li>
-						 	<li><span class="yellow">12 without Spanish experience</span>.</li>
+						 	<li><span class="yellow">12 without Spanish experience</span></li>
 						 </ul>
 						 <br>
 						<li>Age range 18–32 years old</li>
@@ -237,10 +241,10 @@ def context(token):
 					<ul>
 						<li><strong><span class="yellow">Source language</span></strong> of the token had a significant effect on phone produced</li>
 						<ul>
-						 	<li>"a" as <span class="red">/ɑ/</span> when told it came from Spanish</li>
+						 	<li>"a" as <span class="blue">/ɑ/</span> when told it came from Spanish</li>
 						 </ul>
 						 <li><strong><span class="yellow">Participant language background</span></strong> also had significant interaction with main effect</li><ul>
-						 	<li>"a" as <span class="red">/ɑ/</span> by participants with Spanish experience</li>
+						 	<li>"a" as <span class="blue">/ɑ/</span> by participants with Spanish experience</li>
 						 	<li>Spanish group (with Spanish-primed tokens), used <span class="red">/æ/ only 4%</span> of productions</li>
 						 	<li>Versus non-Spanish group (with Spanish-primed tokens), used <span class="red">/æ/ for 37%</span> of productions</li>
 						 </ul>
@@ -266,10 +270,19 @@ def context(token):
 							 	<li>Examination of manner (initial, obstruent or nasal)</li>
 							 	<li>CVCV token structure?</li>
 							 </ul>
-					  <li>Minor effects</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>RESULTS</h1>
+					<ul>
+					  <li><strong><span class="yellow">Minor effects</span></strong> of context</li>
 					  <ul>
 							 	<li>Vowel-initial environments favor <span class="red">/æ/</span></li>
+							 	<ul><li>"Actu", "Aplo"</li></ul>
+
 							 	<li>Higher than average appearance of <span class="red">/æ/</span> with velar-initial (/k/) consonants</li>
+							 	<ul><li>"Casu", "Cano"</li></ul>
 							 </ul>
 					</ul>
 				</section>
@@ -279,6 +292,7 @@ def context(token):
 					<table style="font-size:17pt">
 						<tbody>
 							<tr>
+								
 								<th>Context</th>
 								<th colspan="2">All</th>
 								<th colspan="2">No Spanish</th>
@@ -286,12 +300,12 @@ def context(token):
 							</tr>
 							<tr>
 								<th></th>
-								<th>/ɑ/</th>
-								<th>/æ/</th>
-								<th>/ɑ/</th>
-								<th>/æ/</th>
-								<th>/ɑ/</th>
-								<th>/æ/</th>
+								<th><span class="blue">/ɑ/</span></th>
+								<th><span class="red">/æ/</span></th>
+								<th><span class="blue">/ɑ/</span></th>
+								<th><span class="red">/æ/</span></th>
+								<th><span class="blue">/ɑ/</span></th>
+								<th><span class="red">/æ/</span></th>
 							</tr>
 							<tr>
 								<td>B_K</td>
@@ -409,41 +423,37 @@ def context(token):
 					</ul>
 				</section>
 
-				<section>
-					<h1>WHY IS THIS IMPORTANT?</h1>
-					<section>
-						<blockquote>Familiarity with a foreign language changes how we treat it in our native tongue</blockquote>
-					</section>
-					<section>
-						<blockquote>English and Spanish are increasingly in contact</blockquote>
-					</section>
-					<section>
-						<blockquote>Social and political factors</blockquote>
-					</section>
-					<section>
-						<h2> Evolution of the English language</h2>
-					</section>
-				</section>
-
-				<!-- UNCOMMENT FOR PDF VERSION
-				<section>
-					<h1>WHY IS THIS IMPORTANT?</h1>
-					<ul>
-						<li><blockquote>Familiarity with a foreign language changes how we treat it in our native tongue</blockquote></li>
 				
-						<li><blockquote>English and Spanish are increasingly in contact</blockquote></li>
-
-						<li><blockquote>Social and political factors</blockquote></li>
-						<li><h2> Evolution of the English language</h2></li>
-					</ul>
+				<section>
+					<h1>WHY IS THIS IMPORTANT?</h1>
+					
+						<blockquote>Familiarity with a foreign language changes how we treat it in our native tongue</blockquote>
 				</section>
-				--> 
+
+				<section>
+					<h1>WHY IS THIS IMPORTANT?</h1>
+
+					<blockquote>English and Spanish are increasingly in contact</blockquote>
+				</section>
+
+				<section>
+					<h1>WHY IS THIS IMPORTANT?</h1>
+
+					<blockquote>Social and political factors</blockquote>
+				</section>
+
+				<section>
+					<h1>WHY IS THIS IMPORTANT?</h1>
+					<h2> Evolution of the English language</h2>
+					
+				</section>
+				
 
 				<section>
 					<a href="#"><h1>QUESTIONS?</h1></a>
 					<p><small>Anglicizing Spanish /a/: Implications of statistical distribution and <br>language experience on non-native pronunciation<br><br>Senior Honors Thesis by Kira Prentice</small></p>
 
-					<p><small>Find out more at <a href="https://github.com/kcp288/senior-thesis/">github.com/kcp288/senior-thesis</a>.</small></p>
+					<p><small><span class="yellow">Find out more at </span><a href="https://github.com/kcp288/senior-thesis/">github.com/kcp288/senior-thesis</a>.</small></p>
 				</section>
 
 			</div>
