@@ -1,4 +1,6 @@
 # senior-thesis
+[RESEARCH PRESENTATION HERE](http://kiracp.github.io/senior-thesis/).
+
 Statistical predictions for English pronunciation
 
 Python script extracting phoneme-grapheme stats from CMU phonetic dictionary
